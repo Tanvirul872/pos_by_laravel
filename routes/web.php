@@ -79,6 +79,18 @@ Route::prefix('customers')->group(function(){
 });
 
 
+Route::prefix('units')->group(function(){
+
+    Route::get('/view', 'backend\UnitController@view')->name('units.view');
+    Route::get('/add', 'backend\UnitController@add')->name('units.add');
+    Route::post('/store', 'backend\UnitController@store')->name('units.store');
+    Route::get('/edit/{id}', 'backend\UnitController@edit')->name('units.edit');
+    Route::post('/update/{id}', 'backend\UnitController@update')->name('units.update');
+    Route::get('/delete/{id}', 'backend\UnitController@delete')->name('units.delete');
+
+});
+
+
 });
 
 
