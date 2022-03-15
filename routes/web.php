@@ -57,16 +57,26 @@ Route::prefix('profiles')->group(function(){
 
 Route::prefix('suppliers')->group(function(){
 
-     
       Route::get('/view', 'backend\SupplierController@view')->name('suppliers.view');
       Route::get('/add', 'backend\SupplierController@add')->name('suppliers.add');
       Route::post('/store', 'backend\SupplierController@store')->name('suppliers.store');
       Route::get('/edit/{id}', 'backend\SupplierController@edit')->name('suppliers.edit');
       Route::post('/update/{id}', 'backend\SupplierController@update')->name('suppliers.update');
       Route::get('/delete/{id}', 'backend\SupplierController@delete')->name('suppliers.delete');
-  
+
     });
 
+
+Route::prefix('customers')->group(function(){
+
+    Route::get('/view', 'backend\CustomerController@view')->name('customers.view');
+    Route::get('/add', 'backend\CustomerController@add')->name('customers.add');
+    Route::post('/store', 'backend\CustomerController@store')->name('customers.store');
+    Route::get('/edit/{id}', 'backend\CustomerController@edit')->name('customers.edit');
+    Route::post('/update/{id}', 'backend\CustomerController@update')->name('customers.update');
+    Route::get('/delete/{id}', 'backend\CustomerController@delete')->name('customers.delete');
+
+});
 
 
 });
