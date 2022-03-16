@@ -21,24 +21,23 @@
                         <div class="card">
                             <div class="card-header">
                                 <h3>
-                                    Add brand
-                                    <a class="btn btn-success float-right" href="{{route('brands.view')}}"> View brand </a>
+                                 Edit Brand
+                                    <a class="btn btn-success float-right" href="{{route('brands.view')}}"> View Brand</a>
                                 </h3>
 
                                 <div class="card-body">
 
-                                    <form method="post" action="{{route('brands.store')}}" id="myForm">
+                                    <form method="post" action="{{route('brands.update',$editData->id)}}" id="myForm">
                                         {{csrf_field()}}
 
                                         <div class="form-group">
 
-                                            <label> Brand name </label>
-                                            <input type="text" name="name" class="form-control" id="name"  placeholder="Enter brand name"> <br/>
+                                            <label> Supplier name </label>
+                                            <input type="text" name="name" class="form-control" id="name" value="{{$editData->name}}"  placeholder="Enter category name"> <br/>
 
-                                            <!-- <small style="color:red">  sdsd</small> -->
                                         </div>
 
-                                        <button type="submit" value="submit" class="btn btn-primary"> submit </button>
+                                        <button type="submit" value="submit" class="btn btn-primary"> Update </button>
                                     </form>
 
                                 </div>

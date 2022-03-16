@@ -21,19 +21,19 @@
                         <div class="card">
                             <div class="card-header">
                                 <h3>
-                                    Add brand
-                                    <a class="btn btn-success float-right" href="{{route('brands.view')}}"> View brand </a>
+                                    Add Category
+                                    <a class="btn btn-success float-right" href="{{route('categories.view')}}"> View Category </a>
                                 </h3>
 
                                 <div class="card-body">
 
-                                    <form method="post" action="{{route('brands.store')}}" id="myForm">
+                                    <form method="post" action="{{route('categories.store')}}" id="myForm">
                                         {{csrf_field()}}
 
                                         <div class="form-group">
 
-                                            <label> Brand name </label>
-                                            <input type="text" name="name" class="form-control" id="name"  placeholder="Enter brand name"> <br/>
+                                            <label> Customer name </label>
+                                            <input type="text" name="name" class="form-control" id="name"  placeholder="Enter category name"> <br/>
 
                                             <!-- <small style="color:red">  sdsd</small> -->
                                         </div>

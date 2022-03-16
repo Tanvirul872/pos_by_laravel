@@ -20,8 +20,8 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                <h3> View Brand section
-                                    <a class="btn btn-success float-right" href="{{route('brands.add')}}"> Add Brand </a>
+                                <h3> View Category section
+                                    <a class="btn btn-success float-right" href="{{route('categories.add')}}"> Add Catgory </a>
                                 </h3>
 
                                 <div class="card-body">
@@ -35,16 +35,18 @@
                                         </thead>
                                         <tbody>
 
-                                        @foreach( $allData as $key=> $brand )
+                                        @foreach( $allData as $key=> $category )
+
+
 
                                             <tr>
                                                 <td>{{ $key+1}}</td>
-                                                <td>  {{ $brand->name }}  </td>
+                                                <td>  {{ $category->name }}  </td>
                                                 <td>
-                                                    <a title="edit" class="btn btn-success" href="{{route('brands.edit',$brand->id)}}" ><i class="fa fa-edit"></i></a>
+                                                    <a title="edit" class="btn btn-success" href="{{route('categories.edit',$category->id)}}" ><i class="fa fa-edit"></i></a>
 
 
-                                                    <a title="delete" id="delete" class="btn btn-danger" href="{{route('brands.delete',$brand->id)}}" ><i class="fa fa-trash"></i></a>
+                                                <a title="delete" id="delete" class="btn btn-danger" href="{{route('categories.delete',$category->id)}}" ><i class="fa fa-trash"></i></a>
 
                                                 </td>
                                             </tr>

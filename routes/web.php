@@ -91,6 +91,32 @@ Route::prefix('units')->group(function(){
 });
 
 
+Route::prefix('categories')->group(function(){
+
+    Route::get('/view', 'backend\CategoryController@view')->name('categories.view');
+    Route::get('/add', 'backend\CategoryController@add')->name('categories.add');
+    Route::post('/store', 'backend\CategoryController@store')->name('categories.store');
+    Route::get('/edit/{id}', 'backend\CategoryController@edit')->name('categories.edit');
+    Route::post('/update/{id}', 'backend\CategoryController@update')->name('categories.update');
+    Route::get('/delete/{id}', 'backend\CategoryController@delete')->name('categories.delete');
+
+});
+
+Route::prefix('brands')->group(function(){
+
+    Route::get('/view', 'backend\BrandController@view')->name('brands.view');
+    Route::get('/add', 'backend\BrandController@add')->name('brands.add');
+    Route::post('/store', 'backend\BrandController@store')->name('brands.store');
+    Route::get('/edit/{id}', 'backend\BrandController@edit')->name('brands.edit');
+    Route::post('/update/{id}', 'backend\BrandController@update')->name('brands.update');
+    Route::get('/delete/{id}', 'backend\BrandController@delete')->name('brands.delete');
+
+});
+
+
+
+
+
 });
 
 
