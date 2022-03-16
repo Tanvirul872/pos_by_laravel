@@ -113,6 +113,17 @@ Route::prefix('brands')->group(function(){
 
 });
 
+Route::prefix('products')->group(function(){
+
+    Route::get('/view', 'backend\ProductController@view')->name('products.view');
+    Route::get('/add', 'backend\ProductController@add')->name('products.add');
+    Route::post('/store', 'backend\ProductController@store')->name('products.store');
+    Route::get('/edit/{id}', 'backend\ProductController@edit')->name('products.edit');
+    Route::post('/update/{id}', 'backend\ProductController@update')->name('products.update');
+    Route::get('/delete/{id}', 'backend\ProductController@delete')->name('products.delete');
+
+});
+
 
 
 

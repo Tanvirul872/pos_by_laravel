@@ -5,13 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5f3e2140-ced4-491c-9249-67195692518c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/backend/brand/edit-brand.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/backend/category/add-category.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/backend/category/edit-category.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/backend/category/view-category.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/backend/product/add-product.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/backend/product/edit-product.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/backend/product/view-product.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend/brand/add-brand.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/brand/add-brand.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend/brand/view-brand.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/brand/view-brand.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/backend/layouts/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/layouts/sidebar.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
@@ -143,17 +140,17 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/backend/brand" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/backend/product" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\pos-by-laravel\resources\views\backend\product" />
       <recent name="C:\xampp\htdocs\pos-by-laravel\resources\views\backend\brand" />
       <recent name="C:\xampp\htdocs\pos-by-laravel\resources\views\backend\category" />
       <recent name="C:\xampp\htdocs\pos-by-laravel\resources\views\backend\unit" />
       <recent name="C:\xampp\htdocs\pos-by-laravel\resources\views\backend\customer" />
-      <recent name="C:\xampp\htdocs\pos-by-laravel\resources\views\backend\supplier" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\ecommerce\app\Http\Controllers\Backend" />
@@ -196,7 +193,7 @@
       <workItem from="1647322966873" duration="5492000" />
       <workItem from="1647344861689" duration="1143000" />
       <workItem from="1647347951020" duration="126000" />
-      <workItem from="1647409467971" duration="3593000" />
+      <workItem from="1647409467971" duration="10186000" />
     </task>
     <servers />
   </component>
