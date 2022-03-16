@@ -46,9 +46,10 @@
 
                                             <tr>
                                                 <td>{{ $key+1}}</td>
-                                                <td>  {{ $product->name }}  </td>
+
+                                                <td> {{ $product->name }}   </td>
                                                 <td>  {{ $product->product_code }}  </td>
-                                                <td>  {{ $product->category_id }}  </td>
+                                                <td>  {{ $product['category']['name'] }} </td>
                                                 <td>  {{ $product->product_price }}  </td>
                                                 <td>  {{ $product->product_cost }}  </td>
                                                 <td>  {{ $product->product_profit }}  </td>

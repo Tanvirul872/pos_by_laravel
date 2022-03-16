@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 15, 2022 at 01:40 PM
+-- Generation Time: Mar 16, 2022 at 01:32 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.3.30
 
@@ -20,6 +20,57 @@ SET time_zone = "+00:00";
 --
 -- Database: `pos_laravel`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `brands`
+--
+
+CREATE TABLE `brands` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '1',
+  `created_by` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `updated_by` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `brands`
+--
+
+INSERT INTO `brands` (`id`, `name`, `status`, `created_by`, `updated_by`, `created_at`, `updated_at`) VALUES
+(1, 'tata', '1', NULL, NULL, '1970-01-01 00:00:10', '2022-03-16 00:31:53'),
+(4, 'Walton', '1', NULL, NULL, '1970-01-01 00:00:10', '2022-03-16 00:33:51'),
+(5, 'Sony', '1', NULL, NULL, '1970-01-01 00:00:10', '2022-03-16 00:34:00'),
+(6, 'Mi', '1', NULL, NULL, '1970-01-01 00:00:10', '2022-03-16 00:34:05');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `categories`
+--
+
+CREATE TABLE `categories` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '1',
+  `created_by` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `updated_by` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `categories`
+--
+
+INSERT INTO `categories` (`id`, `name`, `status`, `created_by`, `updated_by`, `created_at`, `updated_at`) VALUES
+(3, 'Wooden product', '1', NULL, '10', '1970-01-01 00:00:10', '2022-03-16 00:22:50'),
+(4, 'Bamboo product', '1', NULL, '10', '1970-01-01 00:00:10', '2022-03-16 00:22:54'),
+(5, 'category 1', '1', NULL, NULL, '1970-01-01 00:00:10', '2022-03-16 06:16:12');
 
 -- --------------------------------------------------------
 
@@ -45,8 +96,8 @@ CREATE TABLE `customers` (
 --
 
 INSERT INTO `customers` (`id`, `name`, `mobile_no`, `email`, `address`, `status`, `created_by`, `updated_by`, `created_at`, `updated_at`) VALUES
-(2, 'customer test updated', '019239232updated', 'test@gmail.comupdated', 'test addressupdated', '1', NULL, '10', '1970-01-01 00:00:10', '2022-03-15 07:44:48'),
-(6, 'yusuf', '0192322334', 'yousuf@gmail.com', 'yusuf address', '1', NULL, NULL, '1970-01-01 00:00:10', '2022-03-15 08:03:21');
+(7, 'Customer1', '454545', 'Customer1@gmail.com', 'Customer1 address', '1', NULL, NULL, '1970-01-01 00:00:10', '2022-03-16 08:41:57'),
+(8, 'Customer2', '5887676', 'Customer2@gmail.com', 'Customer2 address', '1', NULL, NULL, '1970-01-01 00:00:10', '2022-03-16 08:42:30');
 
 -- --------------------------------------------------------
 
@@ -85,7 +136,10 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (4, '2014_10_12_000000_create_users_table', 2),
 (29, '2022_03_14_155444_create_suppliers_table', 3),
 (30, '2022_03_15_073303_create_customers_table', 4),
-(31, '2022_03_15_081908_create_units_table', 5);
+(31, '2022_03_15_081908_create_units_table', 5),
+(32, '2022_03_16_060345_create_categories_table', 6),
+(33, '2022_03_16_062636_create_brands_table', 7),
+(34, '2022_03_16_075725_create_products_table', 8);
 
 -- --------------------------------------------------------
 
@@ -98,6 +152,45 @@ CREATE TABLE `password_resets` (
   `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `products`
+--
+
+CREATE TABLE `products` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `supplier_id` int(11) NOT NULL,
+  `unit_id` int(11) NOT NULL,
+  `category_id` int(11) NOT NULL,
+  `brand_id` int(11) NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `product_code` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `product_price` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `product_cost` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `product_profit` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `product_profit_percent` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `product_details` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `product_img` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `quantity` double NOT NULL DEFAULT 0,
+  `status` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '1',
+  `created_by` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `updated_by` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `products`
+--
+
+INSERT INTO `products` (`id`, `supplier_id`, `unit_id`, `category_id`, `brand_id`, `name`, `product_code`, `product_price`, `product_cost`, `product_profit`, `product_profit_percent`, `product_details`, `product_img`, `quantity`, `status`, `created_by`, `updated_by`, `created_at`, `updated_at`) VALUES
+(2, 4, 3, 3, 1, 'chair', 'chw112', '100', '50', '50', '100', 'chair details', 'test', 0, '1', NULL, NULL, '1970-01-01 00:00:10', '2022-03-16 09:45:40'),
+(3, 4, 3, 3, 1, 'কাঠের চামুচ', 'chw-001', '300', '100', '200', '200', 'details text', 'sssds', 0, '1', NULL, NULL, '1970-01-01 00:00:10', '2022-03-16 09:47:45'),
+(4, 4, 3, 3, 1, 'Md Kamal Hossain', 'dfdfd', '2000', '500', '1500', '300', 'chair details', 'dfddf', 0, '1', NULL, NULL, '1970-01-01 00:00:10', '2022-03-16 10:39:04'),
+(5, 4, 3, 3, 4, 'sdsd', 'dfdfd', '2000', '50', '1950', '3900', 'chair details', 'fgfgfg', 0, '1', NULL, NULL, '1970-01-01 00:00:10', '2022-03-16 12:16:36'),
+(6, 4, 3, 5, 4, 'dsdsd', 'gff', '2000', '445', '1555', '349.43820224719', 'details text', 'fgfgfg', 0, '1', NULL, NULL, '1970-01-01 00:00:10', '2022-03-16 12:17:04');
 
 -- --------------------------------------------------------
 
@@ -123,8 +216,8 @@ CREATE TABLE `suppliers` (
 --
 
 INSERT INTO `suppliers` (`id`, `name`, `mobile_no`, `email`, `address`, `status`, `created_by`, `updated_by`, `created_at`, `updated_at`) VALUES
-(1, 'customer 11111', '325454 ddffddf', 'sdsd@dfdf12112122', 'test address  11111', '1', NULL, '10', '1970-01-01 00:00:10', '2022-03-15 01:42:12'),
-(2, 'Tanvir', '01966927688', 'anmtanvir872@gmail.com', 'bamoil,choto paity', '1', NULL, NULL, '1970-01-01 00:00:10', '2022-03-14 10:34:30');
+(4, 'supplier1', '0232323', 'supplier1@gmail.com', 'supplier1 address', '1', NULL, NULL, '1970-01-01 00:00:10', '2022-03-16 02:41:05'),
+(5, 'supplier2', '5656565', 'supplier2@gmail.com', 'supplier2 address', '1', NULL, NULL, '1970-01-01 00:00:10', '2022-03-16 02:41:21');
 
 -- --------------------------------------------------------
 
@@ -189,6 +282,18 @@ INSERT INTO `users` (`id`, `usertype`, `name`, `code`, `email`, `email_verified_
 --
 
 --
+-- Indexes for table `brands`
+--
+ALTER TABLE `brands`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `categories`
+--
+ALTER TABLE `categories`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `customers`
 --
 ALTER TABLE `customers`
@@ -211,6 +316,12 @@ ALTER TABLE `migrations`
 --
 ALTER TABLE `password_resets`
   ADD KEY `password_resets_email_index` (`email`);
+
+--
+-- Indexes for table `products`
+--
+ALTER TABLE `products`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `suppliers`
@@ -236,10 +347,22 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `brands`
+--
+ALTER TABLE `brands`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `categories`
+--
+ALTER TABLE `categories`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -251,13 +374,19 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+
+--
+-- AUTO_INCREMENT for table `products`
+--
+ALTER TABLE `products`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `suppliers`
 --
 ALTER TABLE `suppliers`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `units`
