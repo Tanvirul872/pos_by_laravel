@@ -124,8 +124,19 @@ Route::prefix('products')->group(function(){
 
 });
 
+Route::prefix('purchase')->group(function(){
+
+    Route::get('/view', 'backend\PurchaseController@view')->name('purchase.view');
+    Route::get('/add', 'backend\PurchaseController@add')->name('purchase.add');
+    Route::post('/store', 'backend\PurchaseController@store')->name('purchase.store');
+    Route::get('/edit/{id}', 'backend\PurchaseController@edit')->name('purchase.edit');
+    Route::post('/update/{id}', 'backend\PurchaseController@update')->name('purchase.update');
+    Route::get('/delete/{id}', 'backend\PurchaseController@delete')->name('purchase.delete');
+
+});
 
 
+    Route::get('/get-category', 'backend\DefaultController@getCategory')->name('get-category');
 
 
 });

@@ -5,7 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5f3e2140-ced4-491c-9249-67195692518c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/views/backend/purchase/add-purchase.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/backend/purchase/view-purchase.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Model/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Model/Product.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend/layouts/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/layouts/sidebar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,17 +140,17 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../trendz_new" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/backend/purchase" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\pos-by-laravel\resources\views\backend\purchase" />
       <recent name="C:\xampp\htdocs\pos-by-laravel\resources\views\backend\product" />
       <recent name="C:\xampp\htdocs\pos-by-laravel\resources\views\backend\brand" />
       <recent name="C:\xampp\htdocs\pos-by-laravel\resources\views\backend\category" />
       <recent name="C:\xampp\htdocs\pos-by-laravel\resources\views\backend\unit" />
-      <recent name="C:\xampp\htdocs\pos-by-laravel\resources\views\backend\customer" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\ecommerce\app\Http\Controllers\Backend" />
@@ -190,6 +195,8 @@
       <workItem from="1647347951020" duration="126000" />
       <workItem from="1647409467971" duration="13845000" />
       <workItem from="1647750651506" duration="1183000" />
+      <workItem from="1647843551226" duration="1243000" />
+      <workItem from="1647850488867" duration="7100000" />
     </task>
     <servers />
   </component>

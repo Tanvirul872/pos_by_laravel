@@ -4,7 +4,7 @@ namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Product extends Model
+class Purchase extends Model
 {
 
     public function category(){
@@ -17,6 +17,10 @@ class Product extends Model
 
     public function unit(){
         return $this->belongsTo(Unit::class,'unit_id','id');
+    }
+
+    public function product(){
+        return $this->belongsTo(Product::class,'product_id','id');
     }
 
 }
