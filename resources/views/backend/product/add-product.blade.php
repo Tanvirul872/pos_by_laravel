@@ -83,7 +83,7 @@
                                             <label> Product Details </label>
                                             <input type="text" name="product_details" class="form-control"  placeholder="Enter product details"> <br/>
 
-                                            <label> Product Details </label>
+                                            <label> Product Image </label>
                                             <input type="text" name="product_img" class="form-control"  placeholder="Enter product img url"> <br/>
 
 
