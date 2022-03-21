@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 16, 2022 at 01:32 PM
+-- Generation Time: Mar 21, 2022 at 01:53 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.3.30
 
@@ -139,7 +139,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (31, '2022_03_15_081908_create_units_table', 5),
 (32, '2022_03_16_060345_create_categories_table', 6),
 (33, '2022_03_16_062636_create_brands_table', 7),
-(34, '2022_03_16_075725_create_products_table', 8);
+(34, '2022_03_16_075725_create_products_table', 8),
+(35, '2022_03_21_082442_create_purchases_table', 9);
 
 -- --------------------------------------------------------
 
@@ -189,8 +190,31 @@ INSERT INTO `products` (`id`, `supplier_id`, `unit_id`, `category_id`, `brand_id
 (2, 4, 3, 3, 1, 'chair', 'chw112', '100', '50', '50', '100', 'chair details', 'test', 0, '1', NULL, NULL, '1970-01-01 00:00:10', '2022-03-16 09:45:40'),
 (3, 4, 3, 3, 1, 'কাঠের চামুচ', 'chw-001', '300', '100', '200', '200', 'details text', 'sssds', 0, '1', NULL, NULL, '1970-01-01 00:00:10', '2022-03-16 09:47:45'),
 (4, 4, 3, 3, 1, 'Md Kamal Hossain', 'dfdfd', '2000', '500', '1500', '300', 'chair details', 'dfddf', 0, '1', NULL, NULL, '1970-01-01 00:00:10', '2022-03-16 10:39:04'),
-(5, 4, 3, 3, 4, 'sdsd', 'dfdfd', '2000', '50', '1950', '3900', 'chair details', 'fgfgfg', 0, '1', NULL, NULL, '1970-01-01 00:00:10', '2022-03-16 12:16:36'),
-(6, 4, 3, 5, 4, 'dsdsd', 'gff', '2000', '445', '1555', '349.43820224719', 'details text', 'fgfgfg', 0, '1', NULL, NULL, '1970-01-01 00:00:10', '2022-03-16 12:17:04');
+(5, 4, 3, 3, 4, 'sdsd', 'dfdfd', '2000', '50', '1950', '3900', 'chair details', 'fgfgfg', 0, '1', NULL, NULL, '1970-01-01 00:00:10', '2022-03-16 12:16:36');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `purchases`
+--
+
+CREATE TABLE `purchases` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `supplier_id` int(11) NOT NULL,
+  `unit_id` int(11) NOT NULL,
+  `category_id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `purchase_no` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `date` date NOT NULL,
+  `description` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `buying_qty` double NOT NULL,
+  `unit_price` double NOT NULL,
+  `status` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '1',
+  `created_by` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `updated_by` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -324,6 +348,12 @@ ALTER TABLE `products`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `purchases`
+--
+ALTER TABLE `purchases`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `suppliers`
 --
 ALTER TABLE `suppliers`
@@ -374,13 +404,19 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `purchases`
+--
+ALTER TABLE `purchases`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `suppliers`
