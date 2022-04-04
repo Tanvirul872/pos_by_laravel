@@ -26,6 +26,7 @@ class PurchaseController extends Controller
         $data['brands'] = Brand::all();
         $data['units'] = Unit::all();
         $data['categories'] = Category::all();
+        $data['products'] = Product::all();
 
         return view('backend.purchase.add-purchase',$data);
     }

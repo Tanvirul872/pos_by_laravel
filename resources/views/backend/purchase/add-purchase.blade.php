@@ -77,9 +77,10 @@
                                                     <select name="product_id" id="product_id" class="form-control">
                                                         <option value=""> Select Product </option>
 
-                                                        {{--                                                @foreach($products as $product)--}}
-                                                        {{--                                                    <option value="{{$product->id}}"> {{$product->name}}  </option>--}}
-                                                        {{--                                                @endforeach--}}
+                                                        @foreach($products as $product)
+                                                            <option value="{{$product->id}}"> {{$product->name}}  </option>
+                                                        @endforeach
+
                                                     </select>
                                                 </div>
 
@@ -106,6 +107,44 @@
 
                                 </div>
 
+
+                                <div class="card-body">
+                                    <form method="post" action="{{route('purchase.store')}}" id="myForm">
+                                      @csrf
+                                        <table class="table table-bordered">
+                                            <thead>
+                                            <tr>
+                                                <th>Category<th>
+                                                <th>Product name<th>
+                                                <th>Pcs/Kg<th>
+                                                <th> Unit Price <th>
+                                                <th> Description <th>
+                                                <th> Total price <th>
+                                                <th> Action <th>
+                                            </tr>
+                                            </thead>
+
+                                            <tbody id="addRow" class="addRow">
+
+                                            </tbody>
+                                            <tbody>
+                                            <tr>
+                                                <td colspan="10"></td>
+                                                <td>
+                                                    <input type="text" name="estimated_amount" value="0" id="estimated_amount"
+                                                    class="form-control text-right estimated_amount" readonly style="background:yellow; "
+                                                    >
+                                                </td>
+
+                                            </tr>
+                                            </tbody>
+
+                                        </table>
+
+                                    </form>
+
+                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -118,3 +157,38 @@
 
 
 @endsection
+
+
+<script id="document-template" type="text/x-handlebars-template">
+
+    <tr class="delete_add_more_item" id="delete_add_more_item">
+        <input type="hidden" name="date[]" value="@{{date}}">
+        <input type="hidden" name="purchase_no[]" value="@{{purchase_no}}">
+        <input type="hidden" name="supplier_id[]" value="@{{supplier_id}}">
+        <td>
+            <input type="hidden" name="category_id[]" value="@{{category_id}}">
+            @{{  category_name }}
+        </td>
+        <td>
+            <input type="hidden" name="product_id[]" value="@{{product_id}}">
+            @{{  product_name }}
+        </td>
+        <td>
+            <input type="number" min="1" class="form-control text-right buying_qty" name="buying_qty[]" value="1">
+        </td>
+        <td>
+            <input type="number" min="1" class="form-control text-right unit_price" name="unit_price[]" value="">
+        </td>
+        <td>
+            <input type="number" min="1" class="form-control text-right unit_price" name="description[]" value="">
+        </td>
+        <td>
+            <input type="number" min="1" class="form-control text-right unit_price" name="buying_price[]" value="0">
+        </td>
+        <td>
+            <i class="btn btn-danger btn-sm fa fa-window-close removeeventmore"></i>
+        </td>
+
+    </tr>
+
+</script>

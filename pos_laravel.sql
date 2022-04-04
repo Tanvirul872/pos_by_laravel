@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 21, 2022 at 01:53 PM
+-- Generation Time: Apr 04, 2022 at 11:52 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.3.30
 
@@ -190,7 +190,7 @@ INSERT INTO `products` (`id`, `supplier_id`, `unit_id`, `category_id`, `brand_id
 (2, 4, 3, 3, 1, 'chair', 'chw112', '100', '50', '50', '100', 'chair details', 'test', 0, '1', NULL, NULL, '1970-01-01 00:00:10', '2022-03-16 09:45:40'),
 (3, 4, 3, 3, 1, 'কাঠের চামুচ', 'chw-001', '300', '100', '200', '200', 'details text', 'sssds', 0, '1', NULL, NULL, '1970-01-01 00:00:10', '2022-03-16 09:47:45'),
 (4, 4, 3, 3, 1, 'Md Kamal Hossain', 'dfdfd', '2000', '500', '1500', '300', 'chair details', 'dfddf', 0, '1', NULL, NULL, '1970-01-01 00:00:10', '2022-03-16 10:39:04'),
-(5, 4, 3, 3, 4, 'sdsd', 'dfdfd', '2000', '50', '1950', '3900', 'chair details', 'fgfgfg', 0, '1', NULL, NULL, '1970-01-01 00:00:10', '2022-03-16 12:16:36');
+(7, 4, 3, 3, 1, 'product 1', 'sas', '200', '60', '140', '233.33333333333', 'sdsd', 'dfddf', 0, '1', NULL, NULL, '1970-01-01 00:00:10', '2022-04-04 08:45:34');
 
 -- --------------------------------------------------------
 
@@ -410,7 +410,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `purchases`
