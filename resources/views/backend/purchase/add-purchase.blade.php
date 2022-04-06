@@ -27,10 +27,7 @@
 
                                 <div class="card-body">
 
-
-
                                         <div class="form-group">
-
                                             <div class="row">
 
                                                 <div class="col-md-4">
@@ -84,34 +81,35 @@
                                                     </select>
                                                 </div>
 
-                                                <div class="form-group col-md-2" style="padding-top:32px; ">
-                                                    <i class="btn btn-primary addeventmore"> + Add Item </i>
+                                                <div class="form-group col-md-2 addeventmore" onclick="myFunction()" style="padding-top:32px; ">
+                                                    <i class="btn btn-primary"> + Add Item </i>
                                                 </div>
-
                                             </div>
-
-
-
-
-
-
-
-
-
-
-
-                                            <!-- <small style="color:red">  sdsd</small> -->
                                         </div>
 
 {{--                                        <button type="submit" value="submit" class="btn btn-primary"> submit </button>--}}
 
                                 </div>
 
-
                                 <div class="card-body">
                                     <form method="post" action="{{route('purchase.store')}}" id="myForm">
                                       @csrf
-                                        <table class="table table-bordered">
+{{--                                        <table id="myTable">--}}
+{{--                                            <tr>--}}
+{{--                                                <td>Row1 cell1</td>--}}
+{{--                                                <td>Row1 cell2</td>--}}
+{{--                                            </tr>--}}
+{{--                                            <tr>--}}
+{{--                                                <td>Row2 cell1</td>--}}
+{{--                                                <td>Row2 cell2</td>--}}
+{{--                                            </tr>--}}
+{{--                                            <tr>--}}
+{{--                                                <td>Row3 cell1</td>--}}
+{{--                                                <td>Row3 cell2</td>--}}
+{{--                                            </tr>--}}
+{{--                                        </table>--}}
+
+                                        <table class="table table-bordered" id="myTable">
                                             <thead>
                                             <tr>
                                                 <th>Category<th>
@@ -138,11 +136,8 @@
 
                                             </tr>
                                             </tbody>
-
                                         </table>
-
                                     </form>
-
                                 </div>
 
                             </div>
@@ -155,8 +150,8 @@
         <!-- /.content -->
     </div>
 
-
 @endsection
+
 
 
 <script id="document-template" type="text/x-handlebars-template">
@@ -192,3 +187,176 @@
     </tr>
 
 </script>
+
+
+<script>
+
+    function myFunction() {
+
+        $(document).ready(function(){
+
+                var table = document.getElementById("myTable");
+                var row = table.insertRow(0);
+                var cell1 = row.insertCell(0);
+                var cell2 = row.insertCell(1);
+                var cell3 = row.insertCell(2);
+                var cell4 = row.insertCell(3);
+                var cell5 = row.insertCell(4);
+                var cell6 = row.insertCell(5);
+                var cell7 = row.insertCell(6);
+                var cell8 = row.insertCell(7);
+
+            cell1.innerHTML = date;
+            cell2.innerHTML = purchase_no;
+            cell3.innerHTML = product_name;
+            cell4.innerHTML = supplier_name;
+            cell5.innerHTML = category_id;
+            cell6.innerHTML = category_name;
+            cell7.innerHTML = product_id;
+            cell8.innerHTML = product_name;
+
+
+                var date = $('#date').val();
+                var purchase_no = $('#purchase_no').val();
+                var supplier_id = $('#supplier_id').val();
+                var supplier_name = $('#supplier_name').find('option:selected').text();
+                var category_id = $('#category_id').val();
+                var category_name = $('#category_name').find('option:selected').text();
+                var product_id = $('#product_id').val();
+                var product_name = $('#product_name').find('option:selected').text();
+
+
+
+                if(date==''){
+                    $.notify("Date is required", {globalposition: 'top right',classname: 'error'});
+                    return false;
+                }
+                if(purchase_no == ''){
+                    $.notify("Purchase no is required", {globalposition: 'top right',classname: 'error'});
+                    return false;
+                }
+                if(supplier_id == ''){
+                    $.notify("Supplier Id no is required", {globalposition: 'top right',classname: 'error'});
+                    return false;
+                }
+
+                if(category_id == ''){
+                    $.notify("Category id no is required", {globalposition: 'top right',classname: 'error'});
+                    return false;
+                }
+                if(product_id == ''){
+                    $.notify("Product  id no is required", {globalposition: 'top right',classname: 'error'});
+                    return false;
+                }
+
+
+
+
+                var source = $("#document-template").html();
+                var template = Handlebars.compile(source);
+                var data = {
+                    date:date,
+                    purchase_no:purchase_no,
+                    supplier_id:supplier_id,
+                    supplier_name:supplier_name,
+                    category_id:category_id,
+                    category_name:category_name,
+                    product_id:product_id,
+                    product_name:product_name
+                };
+                var html = template(data);
+
+                alert(html);
+
+                $("#addRow").append(html);
+
+
+            $(document).on("click",".removeeventmore",function(event){
+                $(this).closest(".delete_add_more_item").remove();
+                totalAmountPrice();
+            });
+
+
+
+
+
+        });
+
+    }
+
+
+
+</script>
+
+
+
+<script type="text/javascript">
+
+    // $(document).on("click",".addeventmore",function(){
+    //
+    //     alert('hello world');
+    //
+    // });
+
+    $(document).ready(function(){
+        $(document).on("click",".addeventmore",function(){
+
+            alert('hello world');
+
+            var date = $('#date').val();
+            var purchase_no = $('#purchase_no').val();
+            var supplier_id = $('#supplier_id').val();
+            var supplier_name = $('#supplier_name').find('option:selected').text();
+            var category_id = $('#category_id').val();
+            var category_name = $('#category_name').find('option:selected').text();
+            var product_id = $('#product_id').val();
+            var product_name = $('#product_name').find('option:selected').text();
+
+            if(date==''){
+                $.notify("Date is required", {globalposition: 'top right',classname: 'error'});
+                return false;
+            }
+            if(purchase_no == ''){
+                $.notify("Purchase no is required", {globalposition: 'top right',classname: 'error'});
+                return false;
+            }
+            if(supplier_id == ''){
+                $.notify("Supplier Id no is required", {globalposition: 'top right',classname: 'error'});
+                return false;
+            }
+
+            if(category_id == ''){
+                $.notify("Category id no is required", {globalposition: 'top right',classname: 'error'});
+                return false;
+            }
+            if(product_id == ''){
+                $.notify("Product  id no is required", {globalposition: 'top right',classname: 'error'});
+                return false;
+            }
+            var source = $("#document-template").html();
+            var template = Handlebars.compile(source);
+            var data = {
+                date:date,
+                purchase_no:purchase_no,
+                supplier_id:supplier_id,
+                supplier_name:supplier_name,
+                category_id:category_id,
+                category_name:category_name,
+                product_id:product_id,
+                product_name:product_name
+            };
+            var html = template(data);
+            $("#addRow").append(html);
+        });
+
+        $(document).on("click",".removeeventmore",function(event){
+            $(this).closest(".delete_add_more_item").remove();
+            totalAmountPrice();
+        });
+
+    });
+
+</script>
+
+
+
